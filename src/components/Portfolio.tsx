@@ -92,7 +92,7 @@ export default function Portfolio() {
                       fill
                       quality={95}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, (max-width: 1600px) 60vw, 1280px"
-                      className="object-cover scale-110 transition-transform duration-700 group-hover:scale-125"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-background via-background/80 via-30% to-transparent" />
                   </>
@@ -164,7 +164,9 @@ export default function Portfolio() {
           className="mt-16 text-center"
         >
           <a
-            href="#"
+            href="https://github.com/jewel1269"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors"
           >
             View All Projects

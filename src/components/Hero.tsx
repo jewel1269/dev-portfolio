@@ -134,13 +134,20 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="flex items-center gap-8 pt-12 text-xs uppercase tracking-widest"
           >
-            {["Facebook", "Twitter", "Linkedin", "Dribbble"].map((s) => (
+            {[
+              { name: "Github", href: "https://github.com/jewel1269" },
+              { name: "Linkedin", href: "https://www.linkedin.com/in/jewel-mia" },
+              { name: "Twitter", href: "https://x.com/jewelmia2330" },
+              { name: "Facebook", href: "https://www.facebook.com/jewel2331" },
+            ].map((s) => (
               <a
-                key={s}
-                href="#"
+                key={s.name}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted hover:text-accent transition-colors"
               >
-                {s}
+                {s.name}
               </a>
             ))}
           </motion.div>
@@ -172,7 +179,7 @@ export default function Hero() {
                 />
               ))}
               <div className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center font-display font-bold text-sm border-2 border-background">
-                20+
+                30+
               </div>
             </div>
             <div>

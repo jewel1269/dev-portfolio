@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowUpRight, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -54,6 +55,17 @@ export default function BlogIndex() {
               <div
                 className={`lg:col-span-5 relative aspect-2/1 lg:aspect-auto lg:min-h-[400px] bg-linear-to-br ${featured.color} overflow-hidden`}
               >
+                {featured.image && (
+                  <Image
+                    src={featured.image}
+                    alt={`${featured.title} cover`}
+                    fill
+                    quality={95}
+                    className="object-cover transition-transform duration-1000 group-hover:scale-[1.04]"
+                    sizes="(max-width: 1024px) 100vw, 640px"
+                    priority
+                  />
+                )}
                 <div className="absolute inset-0 noise" />
                 <div className="absolute top-6 left-6 px-3 py-1 rounded-full bg-background/70 backdrop-blur-md border border-border text-xs uppercase tracking-widest">
                   Featured
@@ -114,6 +126,16 @@ export default function BlogIndex() {
                 <div
                   className={`relative aspect-16/9 bg-linear-to-br ${post.color} overflow-hidden`}
                 >
+                  {post.image && (
+                    <Image
+                      src={post.image}
+                      alt={`${post.title} cover`}
+                      fill
+                      quality={90}
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  )}
                   <div className="absolute inset-0 noise" />
                   <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-background/70 backdrop-blur-md border border-border text-xs uppercase tracking-widest">
                     {post.category}
