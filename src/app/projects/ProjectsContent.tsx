@@ -179,7 +179,8 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
                 src={project.image}
                 alt={`${project.title} preview`}
                 fill
-                quality={95}
+                priority={i === 0}
+                quality={80}
                 className="object-cover object-top transition-transform duration-1000 group-hover:scale-[1.04]"
                 sizes="(max-width: 1024px) 100vw, (max-width: 1600px) 60vw, 1024px"
               />

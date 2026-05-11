@@ -60,10 +60,11 @@ export default function BlogIndex() {
                     src={featured.image}
                     alt={`${featured.title} cover`}
                     fill
-                    quality={95}
+                    quality={80}
                     className="object-cover transition-transform duration-1000 group-hover:scale-[1.04]"
                     sizes="(max-width: 1024px) 100vw, 640px"
                     priority
+                    fetchPriority="high"
                   />
                 )}
                 <div className="absolute inset-0 noise" />
@@ -131,7 +132,7 @@ export default function BlogIndex() {
                       src={post.image}
                       alt={`${post.title} cover`}
                       fill
-                      quality={90}
+                      quality={75}
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />

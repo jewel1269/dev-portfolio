@@ -90,7 +90,7 @@ export default function Portfolio() {
                       src={project.image}
                       alt={project.title}
                       fill
-                      quality={95}
+                      quality={80}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, (max-width: 1600px) 60vw, 1280px"
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />

@@ -72,6 +72,8 @@ export default function Hero() {
               alt="Jewel Mia"
               fill
               priority
+              fetchPriority="high"
+              quality={85}
               className="object-cover object-center"
               sizes="(max-width: 1024px) 55vw, 700px"
             />

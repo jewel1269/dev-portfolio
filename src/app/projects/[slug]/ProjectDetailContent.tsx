@@ -131,7 +131,8 @@ function ParallaxImage({
               alt={alt}
               fill
               priority
-              quality={95}
+              fetchPriority="high"
+              quality={80}
               sizes="(max-width: 1600px) 100vw, 1600px"
               className="object-cover object-top"
             />

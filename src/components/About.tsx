@@ -68,7 +68,9 @@ export default function About() {
               className="flex flex-wrap gap-4 pt-4"
             >
               <a
-                href="#"
+                href="https://drive.google.com/uc?export=download&id=1Mwh_OQ9TI5s9LdD4LSOEh0BXnKV6-_ZM"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-medium hover:bg-accent transition-colors"
               >
                 Download CV

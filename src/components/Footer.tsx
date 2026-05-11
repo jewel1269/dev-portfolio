@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -23,12 +24,12 @@ export default function Footer() {
             Have a project? <br />
             <span className="gradient-text">Let&apos;s talk.</span>
           </h3>
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent text-background font-medium hover:scale-105 transition-transform"
           >
             Start a Project →
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div

@@ -115,13 +115,11 @@ export default async function BlogPost({
         <div className="max-w-[1200px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20">
           {/* Article */}
           <article className="lg:col-span-8 min-w-0">
-            <StaggerContainer className="space-y-6 text-foreground/85 text-lg leading-[1.8]" stagger={0.04}>
+            <div className="space-y-6 text-foreground/85 text-lg leading-[1.8]">
               {post.content.map((block, i) => (
-                <StaggerItem key={i}>
-                  <Block block={block} />
-                </StaggerItem>
+                <Block key={i} block={block} />
               ))}
-            </StaggerContainer>
+            </div>
 
             <Reveal>
               <div className="mt-16 pt-10 border-t border-border">

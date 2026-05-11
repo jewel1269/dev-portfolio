@@ -115,8 +115,8 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="group hidden sm:inline-flex items-center gap-3 pl-5 pr-1.5 py-1.5 rounded-full border border-border bg-card/40 backdrop-blur-sm hover:border-accent/50 hover:bg-card transition-all"
             >
               <span className="text-sm font-medium">Let&apos;s Talk</span>
@@ -124,7 +124,7 @@ export default function Navbar() {
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4" />
                 <ArrowUpRight className="w-4 h-4 absolute transition-transform duration-300 -translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" />
               </span>
-            </a>
+            </Link>
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
