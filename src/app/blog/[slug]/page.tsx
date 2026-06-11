@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Calendar, Clock } from "lucide-react";
@@ -96,9 +97,13 @@ export default async function BlogPost({
 
           <Reveal y={20} delay={0.5}>
             <div className="flex items-center gap-4 mt-10 pt-10 border-t border-border">
-              <div className="w-12 h-12 rounded-full bg-linear-to-br from-accent to-purple-500 flex items-center justify-center font-display font-bold text-background">
-                JM
-              </div>
+              <Image
+                src="/img/jewel2.png"
+                alt="Jewel Mia"
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-full object-cover object-top border border-border"
+              />
               <div>
                 <div className="font-medium">Jewel Mia</div>
                 <div className="text-xs uppercase tracking-widest text-muted mt-0.5">

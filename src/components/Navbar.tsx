@@ -7,8 +7,8 @@ import Link from "next/link";
 import { PROJECTS } from "@/data/projects";
 import { cn } from "@/lib/utils";
 import {
+  FacebookIcon,
   GithubIcon,
-  InstagramIcon,
   LinkedinIcon,
   TwitterIcon,
 } from "@/components/SocialIcons";
@@ -268,17 +268,19 @@ export default function Navbar() {
                   </div>
 
                   <div>
-                    <div className="text-xs uppercase tracking-widest text-muted mb-4">Follow Us</div>
+                    <div className="text-xs uppercase tracking-widest text-muted mb-4">Follow Me</div>
                     <div className="flex items-center gap-3">
                       {[
-                        { Icon: TwitterIcon, href: "#" },
-                        { Icon: LinkedinIcon, href: "#" },
-                        { Icon: GithubIcon, href: "#" },
-                        { Icon: InstagramIcon, href: "#" },
+                        { Icon: GithubIcon, href: "https://github.com/jewel1269" },
+                        { Icon: LinkedinIcon, href: "https://www.linkedin.com/in/jewel-mia" },
+                        { Icon: TwitterIcon, href: "https://x.com/jewelmia2330" },
+                        { Icon: FacebookIcon, href: "https://www.facebook.com/jewel2331" },
                       ].map(({ Icon, href }, i) => (
                         <a
                           key={i}
                           href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-accent hover:text-background hover:border-accent transition-colors"
                         >
                           <Icon className="w-4 h-4" />

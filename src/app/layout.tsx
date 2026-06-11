@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress";
 import Cursor from "@/components/Cursor";
@@ -23,9 +24,42 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Jewel Mia — Software Engineer",
-  description:
-    "Building scalable web platforms and high-performance mobile ecosystems. Specialized in AI integration and system performance optimization.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: "%s — Jewel Mia",
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "Jewel Mia",
+    "Software Engineer",
+    "Full-Stack Developer",
+    "Next.js",
+    "AI Integration",
+    "Bangladesh",
+    "Learn With Jewel",
+    "Programming Fighter",
+  ],
+  authors: [{ name: "Jewel Mia", url: SITE_URL }],
+  creator: "Jewel Mia",
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    creator: "@jewelmia2330",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

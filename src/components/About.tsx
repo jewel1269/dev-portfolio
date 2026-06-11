@@ -6,8 +6,8 @@ import { ArrowUpRight } from "lucide-react";
 const STATS = [
   { value: "4+", label: "Years Experience" },
   { value: "200+", label: "Engineers Mentored" },
-  { value: "4", label: "Companies Shipped" },
-  { value: "50%", label: "Avg. Perf. Boost" },
+  { value: "4", label: "Companies Worked With" },
+  { value: "35%", label: "Faster API Responses" },
 ];
 
 export default function About() {
@@ -47,16 +47,22 @@ export default function About() {
               className="space-y-4 text-muted text-lg leading-relaxed max-w-2xl"
             >
               <p>
-                I&apos;m a Software Engineer based in Dhaka, Bangladesh, focused
-                on building scalable web platforms and high-performance mobile
-                ecosystems. I&apos;ve shipped end-to-end LMS, ERP, and
-                E-commerce products across web and Android.
+                I&apos;m a Software Engineer with 4+ years of experience
+                shipping production systems end-to-end — multi-vendor
+                e-commerce platforms processing real payments, LMS products
+                serving hundreds of learners, and ERP systems running daily
+                operations. I&apos;ve founded and built two education
+                platforms from zero to launch, and I own what I ship:
+                architecture, delivery, and the numbers after release.
               </p>
               <p>
-                I specialize in AI integration and system performance — using
-                tools like OpenAI, Redis, and modern frameworks to cut response
-                times, automate workflows, and turn legacy stacks into fast,
-                user-centric experiences.
+                My focus is making systems measurably faster and smarter —
+                cutting API response times by 35% with Redis-backed caching,
+                integrating LLMs where they create real leverage, and
+                modernizing legacy stacks without breaking the business.
+                Along the way I&apos;ve mentored 200+ engineers in backend
+                architecture, TDD, and clean design — because strong systems
+                are built by strong teams.
               </p>
             </motion.div>
 

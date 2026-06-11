@@ -106,17 +106,8 @@ function ParallaxImage({
   initials: string;
   title: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.05, 1, 1.05]);
-
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: 60, scale: 0.96 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -124,19 +115,18 @@ function ParallaxImage({
       className="relative rounded-3xl overflow-hidden border border-border bg-card"
     >
       {src ? (
-        <div className="relative aspect-4/3 sm:aspect-2/1 overflow-hidden">
-          <motion.div style={{ y, scale }} className="absolute -inset-y-12 inset-x-0">
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              priority
-              fetchPriority="high"
-              quality={80}
-              sizes="(max-width: 1600px) 100vw, 1600px"
-              className="object-cover object-top"
-            />
-          </motion.div>
+        <div className="relative overflow-hidden">
+          <Image
+            src={src}
+            alt={alt}
+            width={1440}
+            height={1080}
+            priority
+            fetchPriority="high"
+            quality={80}
+            sizes="(max-width: 1600px) 100vw, 1600px"
+            className="w-full h-auto"
+          />
           <motion.div
             initial={{ scaleY: 1 }}
             whileInView={{ scaleY: 0 }}
@@ -391,7 +381,7 @@ function PrevNextCard({
                 fill
                 quality={85}
                 sizes="(max-width: 640px) 100vw, 40vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
               />
             ) : (
               <div className={cn("absolute inset-0 bg-linear-to-br", project.color)}>

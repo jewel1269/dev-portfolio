@@ -49,8 +49,6 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-border text-sm text-muted">
           <div>© {new Date().getFullYear()} Jewel Mia. All rights reserved.</div>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms</a>
             <button
               onClick={scrollTop}
               className="flex items-center gap-2 hover:text-accent transition-colors"

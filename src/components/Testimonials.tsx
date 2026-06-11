@@ -6,31 +6,31 @@ import { Quote, Star } from "lucide-react";
 const TESTIMONIALS = [
   {
     quote:
-      "Worked with us for three months straight and never missed a beat. The work was sharp, the communication was clear, and the launch was clean.",
-    author: "Sarah Mendez",
-    role: "Product Lead, Northwind",
-    initials: "SM",
+      "From struggling with my first React app to landing a frontend role — Learn With Jewel made it possible.",
+    author: "Rakib Hasan",
+    role: "Frontend Engineer · Learn With Jewel",
+    initials: "RH",
   },
   {
     quote:
-      "We came in with a vague idea and walked out with a brand we're proud of. Genuinely one of the best collaborators we've hired.",
-    author: "David Park",
-    role: "Founder, Lumen Studio",
-    initials: "DP",
-  },
-  {
-    quote:
-      "Fast, thoughtful, and not precious about feedback. The handoff was so clean our engineers had nothing to ask.",
-    author: "Aisha Rahman",
-    role: "Head of Design, Pulse",
+      "The React course was beautifully structured — it made the core concepts click and showed practical implementations I now use directly in my own projects.",
+    author: "Aiman Rahman",
+    role: "Frontend Developer · Programming Fighter",
     initials: "AR",
   },
   {
     quote:
-      "Took our messy Figma file and turned it into a real design system. Our velocity has roughly doubled since then.",
-    author: "Marcus Chen",
-    role: "CTO, Vector",
-    initials: "MC",
+      "The JavaScript deep dive rebuilt my fundamentals. The step-by-step walk through ES6 and modern practices genuinely improved how I write code.",
+    author: "Samiul Islam",
+    role: "JavaScript Developer · Programming Fighter",
+    initials: "SI",
+  },
+  {
+    quote:
+      "TypeScript finally made sense — types, interfaces, and React integration explained clearly, without the usual confusion.",
+    author: "Evan Khan",
+    role: "Student · Programming Fighter",
+    initials: "EK",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function Testimonials() {
               transition={{ duration: 0.7 }}
               className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight"
             >
-              Kind words from <span className="gradient-text">past clients.</span>
+              Kind words from <span className="gradient-text">clients & students.</span>
             </motion.h2>
           </div>
 
@@ -74,8 +74,8 @@ export default function Testimonials() {
               ))}
             </div>
             <p className="text-muted">
-              <span className="text-foreground font-semibold">4.98 average</span> from 40+
-              completed projects.
+              <span className="text-foreground font-semibold">98% satisfaction</span> across
+              200+ students and client projects.
             </p>
           </motion.div>
         </div>

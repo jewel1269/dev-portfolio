@@ -57,13 +57,13 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Center photo */}
-      <div className="absolute inset-0 flex items-end justify-center pointer-events-none">
+      {/* Center photo — desktop only; on small screens an in-flow photo card is shown instead */}
+      <div className="absolute inset-0 hidden lg:flex items-end justify-center pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative w-[55%] max-w-2xl aspect-3/4 mt-16"
+          className="relative w-[45%] xl:w-[50%] max-w-xl xl:max-w-2xl aspect-3/4 mt-16"
         >
           <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10" />
           <div className="absolute inset-0 overflow-hidden">
@@ -75,7 +75,7 @@ export default function Hero() {
               fetchPriority="high"
               quality={85}
               className="object-cover object-center"
-              sizes="(max-width: 1024px) 55vw, 700px"
+              sizes="(max-width: 1280px) 45vw, 700px"
             />
           </div>
         </motion.div>
@@ -113,6 +113,26 @@ export default function Hero() {
               Mia<span className="text-accent">.</span>
             </motion.h1>
           </div>
+
+          {/* Mobile / tablet photo card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="lg:hidden relative w-full max-w-sm aspect-4/5 rounded-3xl overflow-hidden border border-border bg-card"
+          >
+            <Image
+              src="/img/jewel2.png"
+              alt="Jewel Mia"
+              fill
+              priority
+              fetchPriority="high"
+              quality={85}
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 90vw, 1px"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-background to-transparent" />
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -161,7 +181,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-sm uppercase tracking-widest leading-relaxed text-muted"
+            className="text-base leading-relaxed text-muted lg:[text-shadow:0_2px_16px_rgba(0,0,0,0.9)]"
           >
             Building scalable web platforms and high-performance mobile
             ecosystems with AI integration.
@@ -173,20 +193,12 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex items-center gap-4"
           >
-            <div className="flex -space-x-3">
-              {["bg-rose-400", "bg-amber-400", "bg-emerald-400"].map((c, i) => (
-                <div
-                  key={i}
-                  className={`w-10 h-10 rounded-full ${c} border-2 border-background bg-linear-to-br from-foreground/30 to-foreground/10`}
-                />
-              ))}
-              <div className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center font-display font-bold text-sm border-2 border-background">
-                30+
-              </div>
+            <div className="w-14 h-14 rounded-full bg-foreground text-background flex items-center justify-center font-display font-bold text-sm border-2 border-background">
+              200+
             </div>
             <div>
-              <div className="text-sm font-medium uppercase tracking-wider">Happy Clients</div>
-              <div className="text-xs uppercase tracking-widest text-muted">World Wide</div>
+              <div className="text-sm font-medium uppercase tracking-wider">Students & Clients</div>
+              <div className="text-xs uppercase tracking-widest text-muted">98% Satisfaction</div>
             </div>
           </motion.div>
         </div>
