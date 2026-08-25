@@ -8,11 +8,16 @@ import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PROJECTS } from "@/data/projects";
 
-const FILTERS = ["All", "E-Commerce", "Education", "AI", "Finance"];
+const FILTERS = ["All", "E-Commerce", "Education", "Healthcare", "AI", "Finance"];
 
 export default function Portfolio() {
   const [active, setActive] = useState("All");
-  const filtered = active === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === active);
+  const filtered =
+    active === "All"
+      ? PROJECTS
+      : active === "Finance"
+        ? PROJECTS.filter((p) => p.category === "Finance" || p.category === "Finance / Mobile")
+        : PROJECTS.filter((p) => p.category === active);
 
   return (
     <section id="portfolio" className="relative py-32 px-6 lg:px-16 border-t border-border">
@@ -90,11 +95,11 @@ export default function Portfolio() {
                       src={project.image}
                       alt={project.title}
                       fill
-                      quality={80}
+                      quality={85}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, (max-width: 1600px) 60vw, 1280px"
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover object-left-top transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-background via-background/80 via-30% to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-background via-background/70 to-transparent" />
                   </>
                 ) : (
                   <>
@@ -163,15 +168,13 @@ export default function Portfolio() {
           transition={{ duration: 0.6 }}
           className="mt-16 text-center"
         >
-          <a
-            href="https://github.com/jewel1269"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/projects"
             className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border hover:border-accent hover:text-accent transition-colors"
           >
             View All Projects
             <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

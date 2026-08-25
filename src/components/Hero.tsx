@@ -3,14 +3,104 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const ROLES = ["Software Engineer", "Full-Stack Developer", "AI Integrator"];
 
-function useTypewriter(words: string[], typingSpeed = 90, deletingSpeed = 45, pause = 1500) {
+function playKeyClick(ctx: AudioContext, kind: "type" | "delete") {
+  const t = ctx.currentTime;
+  const frames = Math.floor(ctx.sampleRate * 0.035);
+  const buffer = ctx.createBuffer(1, frames, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < frames; i++) data[i] = Math.random() * 2 - 1;
+
+  const noise = ctx.createBufferSource();
+  noise.buffer = buffer;
+
+  const highpass = ctx.createBiquadFilter();
+  highpass.type = "highpass";
+  highpass.frequency.value = kind === "delete" ? 300 : 500;
+
+  const bandpass = ctx.createBiquadFilter();
+  bandpass.type = "bandpass";
+  bandpass.frequency.value = (kind === "delete" ? 900 : 2200) + Math.random() * 700;
+  bandpass.Q.value = 0.9;
+
+  const noiseGain = ctx.createGain();
+  const noiseVol = kind === "delete" ? 0.045 : 0.09 + Math.random() * 0.03;
+  noiseGain.gain.setValueAtTime(noiseVol, t);
+  noiseGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.04);
+
+  noise.connect(highpass);
+  highpass.connect(bandpass);
+  bandpass.connect(noiseGain);
+  noiseGain.connect(ctx.destination);
+  noise.start(t);
+  noise.stop(t + 0.04);
+
+  const thock = ctx.createOscillator();
+  thock.type = "sine";
+  thock.frequency.value = kind === "delete" ? 130 : 170 + Math.random() * 50;
+  const thockGain = ctx.createGain();
+  thockGain.gain.setValueAtTime(kind === "delete" ? 0.025 : 0.045, t);
+  thockGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.028);
+  thock.connect(thockGain);
+  thockGain.connect(ctx.destination);
+  thock.start(t);
+  thock.stop(t + 0.03);
+}
+
+function useKeyboardClicks(active: boolean) {
+  const ctxRef = useRef<AudioContext | null>(null);
+  const unlockedRef = useRef(false);
+  const activeRef = useRef(active);
+  activeRef.current = active;
+
+  useEffect(() => {
+    const AudioCtx =
+      window.AudioContext ||
+      (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AudioCtx) return;
+
+    const unlock = () => {
+      if (!ctxRef.current) ctxRef.current = new AudioCtx();
+      if (ctxRef.current.state === "suspended") void ctxRef.current.resume();
+      unlockedRef.current = true;
+    };
+
+    window.addEventListener("pointerdown", unlock);
+    window.addEventListener("keydown", unlock);
+
+    return () => {
+      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("keydown", unlock);
+      void ctxRef.current?.close();
+      ctxRef.current = null;
+      unlockedRef.current = false;
+    };
+  }, []);
+
+  return useCallback((kind: "type" | "delete") => {
+    const ctx = ctxRef.current;
+    if (!ctx || !unlockedRef.current || !activeRef.current) return;
+    if (document.visibilityState !== "visible") return;
+    if (ctx.state !== "running") return;
+    playKeyClick(ctx, kind);
+  }, []);
+}
+
+function useTypewriter(
+  words: string[],
+  typingSpeed = 90,
+  deletingSpeed = 45,
+  pause = 1500,
+  onTick?: (kind: "type" | "delete") => void
+) {
   const [text, setText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
+  const onTickRef = useRef(onTick);
+  onTickRef.current = onTick;
 
   useEffect(() => {
     const word = words[wordIndex];
@@ -27,6 +117,7 @@ function useTypewriter(words: string[], typingSpeed = 90, deletingSpeed = 45, pa
       timeout = setTimeout(
         () => {
           setText(deleting ? word.slice(0, text.length - 1) : word.slice(0, text.length + 1));
+          onTickRef.current?.(deleting ? "delete" : "type");
         },
         deleting ? deletingSpeed : typingSpeed
       );
@@ -39,13 +130,49 @@ function useTypewriter(words: string[], typingSpeed = 90, deletingSpeed = 45, pa
 }
 
 export default function Hero() {
-  const typed = useTypewriter(ROLES);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(true);
+  const playClick = useKeyboardClicks(inView);
+  const typed = useTypewriter(ROLES, 90, 45, 1500, playClick);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.25 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="relative min-h-screen flex items-center pt-28 pb-16 px-6 lg:px-16 overflow-hidden"
     >
+      {/* Ambient wash — charcoal lift + faint lime, shared across the whole hero */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 120% 85% at 50% -15%, #161616 0%, var(--background) 68%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 mix-blend-screen opacity-30"
+          style={{
+            background: [
+              "radial-gradient(ellipse 50% 45% at 18% 28%, rgba(197,255,77,0.45) 0%, transparent 70%)",
+              "radial-gradient(ellipse 40% 40% at 82% 72%, rgba(197,255,77,0.22) 0%, transparent 70%)",
+            ].join(", "),
+          }}
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent from-55% to-background" />
+      </div>
+
       {/* Horizontal lines decoration */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
         {[...Array(20)].map((_, i) => (
@@ -63,9 +190,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative w-[45%] xl:w-[50%] max-w-xl xl:max-w-2xl aspect-3/4 mt-16"
+          className="relative w-auto aspect-3/4 h-[min(calc(100svh-6.5rem),calc(685px*4/3))] max-w-[685px]"
         >
-          <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10" />
+          <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-[#161616] to-transparent z-10" />
+          <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent z-10" />
           <div className="absolute inset-0 overflow-hidden">
             <Image
               src="/img/jewel2.png"
@@ -74,8 +202,8 @@ export default function Hero() {
               priority
               fetchPriority="high"
               quality={85}
-              className="object-cover object-center"
-              sizes="(max-width: 1280px) 45vw, 700px"
+              className="object-cover object-[center_20%]"
+              sizes="685px"
             />
           </div>
         </motion.div>

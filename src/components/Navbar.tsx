@@ -34,6 +34,7 @@ const NAV_LINKS: NavLink[] = [
       { label: "Mobile Apps", href: "/#services" },
     ],
   },
+  { label: "Experience", href: "/#experience", expandable: false },
   {
     label: "Portfolio",
     href: "/projects",

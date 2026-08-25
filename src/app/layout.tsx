@@ -6,6 +6,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress";
 import Cursor from "@/components/Cursor";
 import PageTransition from "@/components/PageTransition";
+import ChatWidget from "@/components/ChatWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +39,6 @@ export const metadata: Metadata = {
     "AI Integration",
     "Bangladesh",
     "Learn With Jewel",
-    "Programming Fighter",
   ],
   authors: [{ name: "Jewel Mia", url: SITE_URL }],
   creator: "Jewel Mia",
@@ -78,6 +78,7 @@ export default function RootLayout({
         <SmoothScroll>
           <PageTransition>{children}</PageTransition>
         </SmoothScroll>
+        <ChatWidget />
       </body>
     </html>
   );

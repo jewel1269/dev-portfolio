@@ -1,112 +1,149 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { LinkedinIcon } from "@/components/SocialIcons";
 
-const TESTIMONIALS = [
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+const LIVE_PROOF = [
   {
-    quote:
-      "From struggling with my first React app to landing a frontend role — Learn With Jewel made it possible.",
-    author: "Rakib Hasan",
-    role: "Frontend Engineer · Learn With Jewel",
-    initials: "RH",
+    title: "Learn With Jewel",
+    meta: "Education · live product",
+    href: "https://learnwithjewel.com",
+    caseStudy: "/projects/learn-with-jewel",
+    note: "Bengali-first LMS I founded and shipped — open the site.",
   },
   {
-    quote:
-      "The React course was beautifully structured — it made the core concepts click and showed practical implementations I now use directly in my own projects.",
-    author: "Aiman Rahman",
-    role: "Frontend Developer · Programming Fighter",
-    initials: "AR",
-  },
-  {
-    quote:
-      "The JavaScript deep dive rebuilt my fundamentals. The step-by-step walk through ES6 and modern practices genuinely improved how I write code.",
-    author: "Samiul Islam",
-    role: "JavaScript Developer · Programming Fighter",
-    initials: "SI",
-  },
-  {
-    quote:
-      "TypeScript finally made sense — types, interfaces, and React integration explained clearly, without the usual confusion.",
-    author: "Evan Khan",
-    role: "Student · Programming Fighter",
-    initials: "EK",
+    title: "Ophelia Go",
+    meta: "E-commerce · client build",
+    href: "https://opheliago.com",
+    caseStudy: "/projects/ophelia-go",
+    note: "Multi-vendor marketplace in production — payments, inventory, courier.",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="relative py-32 px-6 lg:px-16 border-t border-border">
-      <div className="max-w-[1600px] mx-auto">
-        <div className="grid lg:grid-cols-12 gap-12 mb-16">
-          <div className="lg:col-span-6">
+    <section
+      id="testimonials"
+      className="relative py-32 px-6 lg:px-16 border-t border-border overflow-hidden"
+    >
+      <div className="absolute top-1/2 -right-40 w-125 h-125 bg-accent/10 blur-[140px] rounded-full pointer-events-none" />
+
+      <div className="relative max-w-[1600px] mx-auto">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+          <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, ease: EASE }}
               className="flex items-center gap-3 mb-6"
             >
               <span className="w-10 h-px bg-accent" />
-              <span className="text-sm uppercase tracking-widest text-muted">Testimonials</span>
+              <span className="text-sm uppercase tracking-widest text-muted">References</span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7 }}
-              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight"
+              transition={{ duration: 0.7, ease: EASE }}
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-2xl"
             >
-              Kind words from <span className="gradient-text">clients & students.</span>
+              Proof you can <span className="gradient-text">open in a tab.</span>
             </motion.h2>
           </div>
-
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-6 lg:col-start-8 self-end space-y-2"
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
+            className="text-muted max-w-md leading-relaxed"
           >
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-              ))}
-            </div>
-            <p className="text-muted">
-              <span className="text-foreground font-semibold">98% satisfaction</span> across
-              200+ students and client projects.
-            </p>
-          </motion.div>
+            I don&apos;t publish invented reviews. These two products are live.
+            Named client references are shared privately on a call.
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {TESTIMONIALS.map((t, i) => (
-            <motion.div
-              key={t.author}
-              initial={{ opacity: 0, y: 30 }}
+        <div className="grid lg:grid-cols-2 gap-4 mb-8">
+          {LIVE_PROOF.map((item, i) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative p-8 lg:p-10 rounded-3xl border border-border bg-card hover:border-accent/30 transition-colors"
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.55, delay: i * 0.08, ease: EASE }}
+              className="group relative rounded-[2rem] border border-border bg-card/50 p-8 sm:p-10 overflow-hidden"
             >
-              <Quote className="w-10 h-10 text-accent/30 mb-6" />
-              <p
-                className="text-lg lg:text-xl leading-relaxed mb-8"
-                dangerouslySetInnerHTML={{ __html: t.quote }}
-              />
-              <div className="flex items-center gap-4 pt-6 border-t border-border">
-                <div className="w-12 h-12 rounded-full bg-linear-to-br from-accent/40 to-purple-500/20 flex items-center justify-center font-display font-semibold">
-                  {t.initials}
+              <div className="absolute inset-0 noise pointer-events-none" />
+              <div className="relative">
+                <div className="text-xs uppercase tracking-widest text-muted mb-4">
+                  {item.meta}
                 </div>
-                <div>
-                  <div className="font-semibold">{t.author}</div>
-                  <div className="text-sm text-muted">{t.role}</div>
+                <h3 className="font-display text-3xl font-semibold tracking-tight mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-muted leading-relaxed mb-8 max-w-md">{item.note}</p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background text-sm font-medium hover:bg-accent transition-colors"
+                  >
+                    Visit live site
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                  <Link
+                    href={item.caseStudy}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-sm hover:border-accent hover:text-accent transition-colors"
+                  >
+                    Case study
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.55, delay: 0.12, ease: EASE }}
+          className="rounded-[2rem] border border-border p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6"
+        >
+          <div>
+            <div className="text-xs uppercase tracking-widest text-muted mb-3">
+              Private references
+            </div>
+            <p className="font-display text-2xl sm:text-3xl font-semibold tracking-tight max-w-xl leading-tight">
+              Need a name and a call with a client? I&apos;ll intro you — no
+              placeholder quotes.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 shrink-0">
+            <a
+              href="https://www.linkedin.com/in/jewel-mia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-sm hover:border-accent hover:text-accent transition-colors"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+              LinkedIn
+            </a>
+            <Link
+              href="/#contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-background text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              Book a call
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

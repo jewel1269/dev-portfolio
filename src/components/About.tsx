@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const STATS = [
   { value: "4+", label: "Years Experience" },
-  { value: "200+", label: "Engineers Mentored" },
+  { value: "200+", label: "Students Mentored" },
   { value: "4", label: "Companies Worked With" },
   { value: "35%", label: "Faster API Responses" },
 ];
@@ -47,22 +47,28 @@ export default function About() {
               className="space-y-4 text-muted text-lg leading-relaxed max-w-2xl"
             >
               <p>
-                I&apos;m a Software Engineer with 4+ years of experience
-                shipping production systems end-to-end — multi-vendor
-                e-commerce platforms processing real payments, LMS products
-                serving hundreds of learners, and ERP systems running daily
-                operations. I&apos;ve founded and built two education
-                platforms from zero to launch, and I own what I ship:
-                architecture, delivery, and the numbers after release.
+                I&apos;m a Software Engineer based in Dhaka, currently at Bina
+                — shipping production systems end-to-end: multi-vendor
+                e-commerce with real payments, LMS products, healthcare tools,
+                and ERP that runs daily operations. I founded{" "}
+                <a
+                  href="https://learnwithjewel.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-accent transition-colors underline underline-offset-4 decoration-border hover:decoration-accent"
+                >
+                  Learn With Jewel
+                </a>{" "}
+                from zero to launch, and I own what I ship: architecture,
+                delivery, and the numbers after release.
               </p>
               <p>
-                My focus is making systems measurably faster and smarter —
-                cutting API response times by 35% with Redis-backed caching,
-                integrating LLMs where they create real leverage, and
-                modernizing legacy stacks without breaking the business.
-                Along the way I&apos;ve mentored 200+ engineers in backend
-                architecture, TDD, and clean design — because strong systems
-                are built by strong teams.
+                I make systems faster and smarter — Redis-backed caching, LLMs
+                where they create real leverage, and legacy stacks modernized
+                without breaking the business. I also teach backend
+                architecture, TDD, and clean design, because strong systems are
+                built by strong teams. Hire me when you need one person who
+                owns the stack after launch — not a ticket queue.
               </p>
             </motion.div>
 
@@ -74,9 +80,8 @@ export default function About() {
               className="flex flex-wrap gap-4 pt-4"
             >
               <a
-                href="https://drive.google.com/uc?export=download&id=1Mwh_OQ9TI5s9LdD4LSOEh0BXnKV6-_ZM"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/resume/Jewel_CV.pdf"
+                download="Jewel_Mia_CV.pdf"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-medium hover:bg-accent transition-colors"
               >
                 Download CV

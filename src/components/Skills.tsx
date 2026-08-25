@@ -3,18 +3,17 @@
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useMemo, useState, type ComponentType, type SVGProps, type MouseEvent } from "react";
 import {
-  SiAnthropic,
+  SiClaude,
   SiCplusplus,
-  SiCss,
   SiDart,
   SiDocker,
   SiExpress,
   SiFirebase,
   SiFlutter,
   SiGit,
-  SiHtml5,
-  SiHuggingface,
+  SiGraphql,
   SiJavascript,
+  SiKubernetes,
   SiLangchain,
   SiMongodb,
   SiMongoose,
@@ -24,8 +23,11 @@ import {
   SiOpenai,
   SiPostgresql,
   SiPrisma,
+  SiPostman,
   SiPython,
   SiReact,
+  SiReactquery,
+  SiRedis,
   SiRedux,
   SiShadcnui,
   SiTailwindcss,
@@ -50,6 +52,14 @@ function LetterMark({ letters, color }: { letters: string; color: string }) {
 const N8nIcon = () => <LetterMark letters="n8n" color="#EA4B71" />;
 const ZustandIcon = () => <LetterMark letters="Z" color="#FFB454" />;
 
+function CursorAiIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>
+      <path d="M13.109 21.444 10.273 11.804.556 8.556 23.444.556l-7.889 22.888-2.446-2z" />
+    </svg>
+  );
+}
+
 type Tech = {
   name: string;
   category: string;
@@ -58,41 +68,45 @@ type Tech = {
 };
 
 const TECHS: Tech[] = [
-  { name: "JavaScript", category: "Languages", Icon: SiJavascript, color: "#F7DF1E" },
   { name: "TypeScript", category: "Languages", Icon: SiTypescript, color: "#3178C6" },
-  { name: "Dart", category: "Languages", Icon: SiDart, color: "#0175C2" },
+  { name: "JavaScript", category: "Languages", Icon: SiJavascript, color: "#F7DF1E" },
   { name: "Python", category: "Languages", Icon: SiPython, color: "#3776AB" },
+  { name: "Dart", category: "Languages", Icon: SiDart, color: "#0175C2" },
   { name: "C++", category: "Languages", Icon: SiCplusplus, color: "#00599C" },
 
   { name: "React", category: "Frontend", Icon: SiReact, color: "#61DAFB" },
   { name: "Next.js", category: "Frontend", Icon: SiNextdotjs, color: "#FFFFFF" },
+  { name: "React Native", category: "Frontend", Icon: SiReact, color: "#61DAFB" },
   { name: "Flutter", category: "Frontend", Icon: SiFlutter, color: "#02569B" },
   { name: "Tailwind CSS", category: "Frontend", Icon: SiTailwindcss, color: "#06B6D4" },
   { name: "shadcn/ui", category: "Frontend", Icon: SiShadcnui, color: "#FFFFFF" },
   { name: "Redux", category: "Frontend", Icon: SiRedux, color: "#764ABC" },
   { name: "Zustand", category: "Frontend", Icon: ZustandIcon, color: "#FFB454" },
-  { name: "HTML5", category: "Frontend", Icon: SiHtml5, color: "#E34F26" },
-  { name: "CSS3", category: "Frontend", Icon: SiCss, color: "#1572B6" },
+  { name: "TanStack Query", category: "Frontend", Icon: SiReactquery, color: "#FF4154" },
 
   { name: "Node.js", category: "Backend", Icon: SiNodedotjs, color: "#5FA04E" },
   { name: "Nest.js", category: "Backend", Icon: SiNestjs, color: "#E0234E" },
   { name: "Express.js", category: "Backend", Icon: SiExpress, color: "#FFFFFF" },
+  { name: "GraphQL", category: "Backend", Icon: SiGraphql, color: "#E10098" },
   { name: "PostgreSQL", category: "Backend", Icon: SiPostgresql, color: "#4169E1" },
+  { name: "Prisma", category: "Backend", Icon: SiPrisma, color: "#FFFFFF" },
   { name: "MongoDB", category: "Backend", Icon: SiMongodb, color: "#47A248" },
   { name: "Mongoose", category: "Backend", Icon: SiMongoose, color: "#880000" },
-  { name: "Prisma", category: "Backend", Icon: SiPrisma, color: "#FFFFFF" },
+  { name: "Redis", category: "Backend", Icon: SiRedis, color: "#FF4438" },
   { name: "Firebase", category: "Backend", Icon: SiFirebase, color: "#FFCA28" },
 
   { name: "OpenAI", category: "AI", Icon: SiOpenai, color: "#FFFFFF" },
-  { name: "LLM", category: "AI", Icon: SiAnthropic, color: "#D4A27F" },
+  { name: "Claude", category: "AI", Icon: SiClaude, color: "#D97757" },
   { name: "LangChain", category: "AI", Icon: SiLangchain, color: "#FFFFFF" },
-  { name: "Hugging Face", category: "AI", Icon: SiHuggingface, color: "#FFD21E" },
 
   { name: "n8n", category: "Automation", Icon: N8nIcon, color: "#EA4B71" },
   { name: "Zapier", category: "Automation", Icon: SiZapier, color: "#FF4F00" },
 
+  { name: "Cursor AI", category: "Tools", Icon: CursorAiIcon, color: "#FFFFFF" },
   { name: "Git", category: "Tools", Icon: SiGit, color: "#F05032" },
   { name: "Docker", category: "Tools", Icon: SiDocker, color: "#2496ED" },
+  { name: "Kubernetes", category: "Tools", Icon: SiKubernetes, color: "#326CE5" },
+  { name: "Postman", category: "Tools", Icon: SiPostman, color: "#FF6C37" },
 ];
 
 const CATEGORIES = [

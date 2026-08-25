@@ -5,4 +5,4 @@ export const SITE_URL =
 export const SITE_NAME = "Jewel Mia — Software Engineer";
 
 export const SITE_DESCRIPTION =
-  "Software Engineer from Dhaka, Bangladesh — building scalable web platforms, high-performance mobile apps, and AI-integrated products. Founder of Learn With Jewel and Programming Fighter.";
+  "Software Engineer from Dhaka, Bangladesh — building scalable web platforms, high-performance mobile apps, and AI-integrated products. Founder of Learn With Jewel.";

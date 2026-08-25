@@ -36,7 +36,7 @@ function MaskReveal({
 function HeroBlock() {
   const stats = [
     { value: PROJECTS.length.toString().padStart(2, "0"), label: "Projects shipped" },
-    { value: "04", label: "Industries served" },
+    { value: "05", label: "Industries served" },
     { value: "100%", label: "Production-grade" },
   ];
 

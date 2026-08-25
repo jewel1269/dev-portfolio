@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Experience from "@/components/Experience";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import Skills from "@/components/Skills";
@@ -27,7 +28,6 @@ const personJsonLd = {
     "https://x.com/jewelmia2330",
     "https://www.facebook.com/jewel2331",
     "https://learnwithjewel.com",
-    "https://programming-fighter.com",
   ],
 };
 
@@ -42,6 +42,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
+      <Experience />
       <Portfolio />
       <Skills />
       <Contact />

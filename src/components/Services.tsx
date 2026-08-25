@@ -25,8 +25,8 @@ const SERVICES = [
   {
     icon: Smartphone,
     title: "Mobile Apps",
-    desc: "Cross-platform Android and iOS apps built with Flutter — native feel, single codebase.",
-    tags: ["Flutter", "Dart", "Firebase"],
+    desc: "Cross-platform Android and iOS apps — React Native as the primary stack (2 years), Flutter where the product calls for it.",
+    tags: ["React Native", "Flutter", "TypeScript"],
   },
   {
     icon: Zap,
