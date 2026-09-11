@@ -80,8 +80,8 @@ export default function About() {
               className="flex flex-wrap gap-4 pt-4"
             >
               <a
-                href="/resume/Jewel_CV.pdf"
-                download="Jewel_Mia_CV.pdf"
+                href="/resume/Jewel_Resume.pdf"
+                download="Jewel_Mia_Resume.pdf"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-medium hover:bg-accent transition-colors"
               >
                 Download CV

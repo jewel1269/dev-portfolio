@@ -8,7 +8,7 @@ import Cal, { getCalApi } from "@calcom/embed-react";
 const CAL_LINK = "jewel-mia-goueyh/30min";
 
 const CONTACTS = [
-  { Icon: Mail, label: "Email", value: "jewelmia.dev@gmail.com", href: "mailto:jewelmia.dev@gmail.com" },
+  { Icon: Mail, label: "Email", value: "info.jewelmia@gmail.com", href: "mailto:info.jewelmia@gmail.com" },
   { Icon: Phone, label: "Phone", value: "+880 1684-321082", href: "tel:+8801684321082" },
   { Icon: MapPin, label: "Location", value: "Dhaka, Bangladesh", href: "#" },
 ];

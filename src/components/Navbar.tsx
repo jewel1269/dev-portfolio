@@ -256,10 +256,10 @@ export default function Navbar() {
                   <div>
                     <div className="text-xs uppercase tracking-widest text-muted mb-2">Email</div>
                     <a
-                      href="mailto:jewelmia.dev@gmail.com"
+                      href="mailto:info.jewelmia@gmail.com"
                       className="text-xl font-medium hover:text-accent transition-colors"
                     >
-                      jewelmia.dev@gmail.com
+                      info.jewelmia@gmail.com
                     </a>
                   </div>
 

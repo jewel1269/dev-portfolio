@@ -12,7 +12,7 @@ import {
   WhatsappIcon,
 } from "@/components/SocialIcons";
 
-const EMAIL = "jewelmia.dev@gmail.com";
+const EMAIL = "info.jewelmia@gmail.com";
 const PHONE_DISPLAY = "+880 1684-321082";
 const WHATSAPP_URL =
   "https://wa.me/8801684321082?text=" +
