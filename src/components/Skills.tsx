@@ -2,36 +2,48 @@
 
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useMemo, useState, type ComponentType, type SVGProps, type MouseEvent } from "react";
+import { Boxes, Layers, Network, Radio } from "lucide-react";
+import { FaAws } from "react-icons/fa6";
 import {
   SiClaude,
   SiCplusplus,
   SiDart,
   SiDocker,
+  SiExpo,
   SiExpress,
   SiFirebase,
   SiFlutter,
   SiGit,
+  SiGithub,
+  SiGithubactions,
   SiGraphql,
   SiJavascript,
+  SiJest,
+  SiJira,
   SiKubernetes,
   SiLangchain,
+  SiLinear,
   SiMongodb,
   SiMongoose,
   SiNestjs,
   SiNextdotjs,
   SiNodedotjs,
+  SiNotion,
   SiOpenai,
   SiPostgresql,
-  SiPrisma,
   SiPostman,
+  SiPrisma,
   SiPython,
   SiReact,
   SiReactquery,
   SiRedis,
   SiRedux,
   SiShadcnui,
+  SiSocketdotio,
+  SiSwagger,
   SiTailwindcss,
   SiTypescript,
+  SiVitest,
   SiZapier,
 } from "react-icons/si";
 import { cn } from "@/lib/utils";
@@ -51,6 +63,7 @@ function LetterMark({ letters, color }: { letters: string; color: string }) {
 
 const N8nIcon = () => <LetterMark letters="n8n" color="#EA4B71" />;
 const ZustandIcon = () => <LetterMark letters="Z" color="#FFB454" />;
+const OpenRouterIcon = () => <LetterMark letters="OR" color="#8B5CF6" />;
 
 function CursorAiIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -76,11 +89,9 @@ const TECHS: Tech[] = [
 
   { name: "React", category: "Frontend", Icon: SiReact, color: "#61DAFB" },
   { name: "Next.js", category: "Frontend", Icon: SiNextdotjs, color: "#FFFFFF" },
-  { name: "React Native", category: "Frontend", Icon: SiReact, color: "#61DAFB" },
-  { name: "Flutter", category: "Frontend", Icon: SiFlutter, color: "#02569B" },
   { name: "Tailwind CSS", category: "Frontend", Icon: SiTailwindcss, color: "#06B6D4" },
   { name: "shadcn/ui", category: "Frontend", Icon: SiShadcnui, color: "#FFFFFF" },
-  { name: "Redux", category: "Frontend", Icon: SiRedux, color: "#764ABC" },
+  { name: "Redux Toolkit", category: "Frontend", Icon: SiRedux, color: "#764ABC" },
   { name: "Zustand", category: "Frontend", Icon: ZustandIcon, color: "#FFB454" },
   { name: "TanStack Query", category: "Frontend", Icon: SiReactquery, color: "#FF4154" },
 
@@ -88,25 +99,47 @@ const TECHS: Tech[] = [
   { name: "Nest.js", category: "Backend", Icon: SiNestjs, color: "#E0234E" },
   { name: "Express.js", category: "Backend", Icon: SiExpress, color: "#FFFFFF" },
   { name: "GraphQL", category: "Backend", Icon: SiGraphql, color: "#E10098" },
-  { name: "PostgreSQL", category: "Backend", Icon: SiPostgresql, color: "#4169E1" },
   { name: "Prisma", category: "Backend", Icon: SiPrisma, color: "#FFFFFF" },
-  { name: "MongoDB", category: "Backend", Icon: SiMongodb, color: "#47A248" },
   { name: "Mongoose", category: "Backend", Icon: SiMongoose, color: "#880000" },
-  { name: "Redis", category: "Backend", Icon: SiRedis, color: "#FF4438" },
-  { name: "Firebase", category: "Backend", Icon: SiFirebase, color: "#FFCA28" },
+
+  { name: "PostgreSQL", category: "Databases", Icon: SiPostgresql, color: "#4169E1" },
+  { name: "MongoDB", category: "Databases", Icon: SiMongodb, color: "#47A248" },
+  { name: "Redis", category: "Databases", Icon: SiRedis, color: "#FF4438" },
+  { name: "Firebase", category: "Databases", Icon: SiFirebase, color: "#FFCA28" },
+
+  { name: "Microservices", category: "Architecture", Icon: Boxes, color: "#C5FF4D" },
+  { name: "Modular Monolith", category: "Architecture", Icon: Layers, color: "#C5FF4D" },
+  { name: "Event-Driven", category: "Architecture", Icon: Radio, color: "#C5FF4D" },
+  { name: "REST API Design", category: "Architecture", Icon: Network, color: "#C5FF4D" },
+  { name: "Socket.io", category: "Architecture", Icon: SiSocketdotio, color: "#FFFFFF" },
 
   { name: "OpenAI", category: "AI", Icon: SiOpenai, color: "#FFFFFF" },
   { name: "Claude", category: "AI", Icon: SiClaude, color: "#D97757" },
+  { name: "OpenRouter", category: "AI", Icon: OpenRouterIcon, color: "#8B5CF6" },
   { name: "LangChain", category: "AI", Icon: SiLangchain, color: "#FFFFFF" },
 
-  { name: "n8n", category: "Automation", Icon: N8nIcon, color: "#EA4B71" },
-  { name: "Zapier", category: "Automation", Icon: SiZapier, color: "#FF4F00" },
+  { name: "AWS", category: "DevOps", Icon: FaAws, color: "#FF9900" },
+  { name: "Docker", category: "DevOps", Icon: SiDocker, color: "#2496ED" },
+  { name: "Kubernetes", category: "DevOps", Icon: SiKubernetes, color: "#326CE5" },
+  { name: "CI/CD", category: "DevOps", Icon: SiGithubactions, color: "#2088FF" },
 
-  { name: "Cursor AI", category: "Tools", Icon: CursorAiIcon, color: "#FFFFFF" },
+  { name: "Jest", category: "Testing", Icon: SiJest, color: "#C21325" },
+  { name: "Vitest", category: "Testing", Icon: SiVitest, color: "#6E9F18" },
+
+  { name: "React Native", category: "Mobile", Icon: SiReact, color: "#61DAFB" },
+  { name: "Expo", category: "Mobile", Icon: SiExpo, color: "#FFFFFF" },
+  { name: "Flutter", category: "Mobile", Icon: SiFlutter, color: "#02569B" },
+
   { name: "Git", category: "Tools", Icon: SiGit, color: "#F05032" },
-  { name: "Docker", category: "Tools", Icon: SiDocker, color: "#2496ED" },
-  { name: "Kubernetes", category: "Tools", Icon: SiKubernetes, color: "#326CE5" },
+  { name: "GitHub", category: "Tools", Icon: SiGithub, color: "#FFFFFF" },
   { name: "Postman", category: "Tools", Icon: SiPostman, color: "#FF6C37" },
+  { name: "Swagger", category: "Tools", Icon: SiSwagger, color: "#85EA2D" },
+  { name: "n8n", category: "Tools", Icon: N8nIcon, color: "#EA4B71" },
+  { name: "Zapier", category: "Tools", Icon: SiZapier, color: "#FF4F00" },
+  { name: "Jira", category: "Tools", Icon: SiJira, color: "#0052CC" },
+  { name: "Linear", category: "Tools", Icon: SiLinear, color: "#5E6AD2" },
+  { name: "Notion", category: "Tools", Icon: SiNotion, color: "#FFFFFF" },
+  { name: "Cursor AI", category: "Tools", Icon: CursorAiIcon, color: "#FFFFFF" },
 ];
 
 const CATEGORIES = [
@@ -114,8 +147,12 @@ const CATEGORIES = [
   "Languages",
   "Frontend",
   "Backend",
+  "Databases",
+  "Architecture",
   "AI",
-  "Automation",
+  "DevOps",
+  "Testing",
+  "Mobile",
   "Tools",
 ] as const;
 
