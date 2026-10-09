@@ -34,9 +34,9 @@ export default function About() {
               transition={{ duration: 0.7 }}
               className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight"
             >
-              Turning complex business needs into{" "}
-              <span className="gradient-text">scalable, AI-driven</span> digital
-              products.
+              Engineering{" "}
+              <span className="gradient-text">production systems</span> with
+              clear architecture and reliable delivery.
             </motion.h2>
 
             <motion.div
@@ -47,10 +47,23 @@ export default function About() {
               className="space-y-4 text-muted text-lg leading-relaxed max-w-2xl"
             >
               <p>
-                I&apos;m a Software Engineer based in Dhaka, currently at Bina
-                — shipping production systems end-to-end: multi-vendor
-                e-commerce with real payments, LMS products, healthcare tools,
-                and ERP that runs daily operations. I founded{" "}
+                I am a Software Engineer at Bina. I design and deliver
+                production systems for products of any kind, from architecture
+                through release. Technical decisions are aligned with business
+                requirements, with accountability for quality, performance, and
+                maintainability.
+              </p>
+              <p>
+                I am the founder of{" "}
+                <a
+                  href="https://www.storebee.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-accent transition-colors underline underline-offset-4 decoration-border hover:decoration-accent"
+                >
+                  StoreBee
+                </a>
+                , a multi-tenant ecommerce platform for merchants, and{" "}
                 <a
                   href="https://learnwithjewel.com"
                   target="_blank"
@@ -58,17 +71,11 @@ export default function About() {
                   className="text-foreground hover:text-accent transition-colors underline underline-offset-4 decoration-border hover:decoration-accent"
                 >
                   Learn With Jewel
-                </a>{" "}
-                from zero to launch, and I own what I ship: architecture,
-                delivery, and the numbers after release.
-              </p>
-              <p>
-                I make systems faster and smarter — Redis-backed caching, LLMs
-                where they create real leverage, and legacy stacks modernized
-                without breaking the business. I also teach backend
-                architecture, TDD, and clean design, because strong systems are
-                built by strong teams. Hire me when you need one person who
-                owns the stack after launch — not a ticket queue.
+                </a>
+                , a learning platform. I remain responsible for the product, the
+                engineering, and the outcome after launch. The same standard of
+                ownership applies to client engagements and to the products I
+                have founded.
               </p>
             </motion.div>
 

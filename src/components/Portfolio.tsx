@@ -10,14 +10,16 @@ import { PROJECTS } from "@/data/projects";
 
 const FILTERS = ["All", "E-Commerce", "Education", "Healthcare", "AI", "Finance"];
 
+function matchesFilter(category: string, filter: string) {
+  const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "");
+  const target = normalize(filter);
+  return category.split("/").some((part) => normalize(part) === target);
+}
+
 export default function Portfolio() {
   const [active, setActive] = useState("All");
   const filtered =
-    active === "All"
-      ? PROJECTS
-      : active === "Finance"
-        ? PROJECTS.filter((p) => p.category === "Finance" || p.category === "Finance / Mobile")
-        : PROJECTS.filter((p) => p.category === active);
+    active === "All" ? PROJECTS : PROJECTS.filter((p) => matchesFilter(p.category, active));
 
   return (
     <section id="portfolio" className="relative py-32 px-6 lg:px-16 border-t border-border">

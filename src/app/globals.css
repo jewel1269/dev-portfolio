@@ -136,3 +136,103 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   opacity: 0.03;
 }
+
+.hero-glow {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.hero-glow-left {
+  width: 46vw;
+  height: 46vh;
+  left: -10%;
+  top: 8%;
+  opacity: 0.38;
+  background: radial-gradient(ellipse at center, rgba(197, 255, 77, 0.55) 0%, transparent 70%);
+  animation: hero-drift-left 14s ease-in-out infinite;
+}
+
+.hero-glow-right {
+  width: 40vw;
+  height: 42vh;
+  right: -8%;
+  bottom: 2%;
+  opacity: 0.5;
+  background: radial-gradient(ellipse at center, rgba(197, 255, 77, 0.34) 0%, transparent 70%);
+  animation: hero-drift-right 18s ease-in-out infinite;
+}
+
+.hero-glow-top {
+  width: 26vw;
+  height: 28vh;
+  left: 38%;
+  top: -10%;
+  opacity: 0.35;
+  background: radial-gradient(ellipse at center, rgba(197, 255, 77, 0.3) 0%, transparent 70%);
+  animation: hero-drift-top 22s ease-in-out infinite;
+}
+
+.hero-sweep {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 22%;
+  background: linear-gradient(to bottom, transparent, rgba(197, 255, 77, 0.1), transparent);
+  mix-blend-mode: screen;
+  animation: hero-sweep 10s linear infinite;
+}
+
+.hero-sweep-slow {
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, rgba(197, 255, 77, 0.06), transparent);
+  animation-duration: 16s;
+  animation-delay: -6s;
+}
+
+.hero-mote {
+  position: absolute;
+  bottom: -4%;
+  border-radius: 9999px;
+  background: #c5ff4d;
+  box-shadow: 0 0 10px rgba(197, 255, 77, 0.8);
+  opacity: 0;
+  animation: hero-rise linear infinite;
+}
+
+@keyframes hero-drift-left {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(8%, 14%, 0) scale(1.16); }
+}
+
+@keyframes hero-drift-right {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-10%, -8%, 0) scale(1.2); }
+}
+
+@keyframes hero-drift-top {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(12%, 10%, 0) scale(1.1); }
+}
+
+@keyframes hero-sweep {
+  0% { transform: translateY(-40%); }
+  100% { transform: translateY(520%); }
+}
+
+@keyframes hero-rise {
+  0% { transform: translateY(0) scale(0.6); opacity: 0; }
+  12% { opacity: 0.7; }
+  78% { opacity: 0.28; }
+  100% { transform: translateY(-108vh) scale(1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow,
+  .hero-sweep,
+  .hero-mote {
+    animation: none;
+  }
+}

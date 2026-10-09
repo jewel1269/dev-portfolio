@@ -7,6 +7,17 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const ROLES = ["Software Engineer", "Full-Stack Developer", "AI Integrator"];
 
+const MOTES = [
+  { left: "6%", size: 3, delay: "0s", duration: "15s" },
+  { left: "14%", size: 2, delay: "-4s", duration: "18s" },
+  { left: "22%", size: 4, delay: "-9s", duration: "21s" },
+  { left: "78%", size: 3, delay: "-2s", duration: "17s" },
+  { left: "86%", size: 2, delay: "-7s", duration: "19s" },
+  { left: "93%", size: 4, delay: "-12s", duration: "16s" },
+  { left: "48%", size: 2, delay: "-6s", duration: "23s" },
+  { left: "62%", size: 3, delay: "-11s", duration: "20s" },
+];
+
 function playKeyClick(ctx: AudioContext, kind: "type" | "delete") {
   const t = ctx.currentTime;
   const frames = Math.floor(ctx.sampleRate * 0.035);
@@ -152,8 +163,8 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center pt-28 pb-16 px-6 lg:px-16 overflow-hidden"
     >
-      {/* Ambient wash — charcoal lift + faint lime, shared across the whole hero */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+      {/* Ambient wash — charcoal lift + drifting lime glows */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
         <div
           className="absolute inset-0"
           style={{
@@ -161,15 +172,24 @@ export default function Hero() {
               "radial-gradient(ellipse 120% 85% at 50% -15%, #161616 0%, var(--background) 68%)",
           }}
         />
-        <div
-          className="absolute inset-0 mix-blend-screen opacity-30"
-          style={{
-            background: [
-              "radial-gradient(ellipse 50% 45% at 18% 28%, rgba(197,255,77,0.45) 0%, transparent 70%)",
-              "radial-gradient(ellipse 40% 40% at 82% 72%, rgba(197,255,77,0.22) 0%, transparent 70%)",
-            ].join(", "),
-          }}
-        />
+        <div className="hero-glow hero-glow-left" />
+        <div className="hero-glow hero-glow-right" />
+        <div className="hero-glow hero-glow-top" />
+        <div className="hero-sweep" />
+        <div className="hero-sweep hero-sweep-slow" />
+        {MOTES.map((mote) => (
+          <span
+            key={`${mote.left}-${mote.delay}`}
+            className="hero-mote"
+            style={{
+              left: mote.left,
+              width: mote.size,
+              height: mote.size,
+              animationDuration: mote.duration,
+              animationDelay: mote.delay,
+            }}
+          />
+        ))}
         <div className="absolute inset-0 bg-linear-to-b from-transparent from-55% to-background" />
       </div>
 
@@ -192,8 +212,7 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="relative w-auto aspect-3/4 h-[min(calc(100svh-6.5rem),calc(685px*4/3))] max-w-[685px]"
         >
-          <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-[#161616] to-transparent z-10" />
-          <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent z-10" />
+          <div className="absolute inset-x-0 bottom-0 h-[22%] bg-linear-to-t from-background to-transparent z-10" />
           <div className="absolute inset-0 overflow-hidden">
             <Image
               src="/img/jewel2.png"
@@ -247,7 +266,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="lg:hidden relative w-full max-w-sm aspect-4/5 rounded-3xl overflow-hidden border border-border bg-card"
+            className="lg:hidden relative w-full max-w-sm aspect-4/5 rounded-3xl overflow-hidden"
           >
             <Image
               src="/img/jewel2.png"
@@ -259,7 +278,7 @@ export default function Hero() {
               className="object-cover object-top"
               sizes="(max-width: 1024px) 90vw, 1px"
             />
-            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-background to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-[18%] bg-linear-to-t from-background to-transparent" />
           </motion.div>
 
           <motion.div
