@@ -282,7 +282,7 @@ export const PROJECTS: Project[] = [
     category: "Finance / Mobile",
     year: "2026",
     role: "Mobile App Developer",
-    liveLink: "#",
+    liveLink: "https://play.google.com/store/apps/details?id=com.jewel.expenseiq",
     image: "/img/expenseiq.png",
     tags: ["Flutter", "Riverpod", "Hive", "Android"],
     color: "from-blue-500/30 to-slate-900/10",

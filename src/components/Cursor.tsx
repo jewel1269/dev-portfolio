@@ -54,8 +54,8 @@ export default function Cursor() {
           width: hovering ? 56 : 12,
           height: hovering ? 56 : 12,
           opacity: visible ? 1 : 0,
-          backgroundColor: hovering ? "rgba(197, 255, 77, 0.15)" : "rgba(197, 255, 77, 1)",
-          borderColor: hovering ? "rgba(197, 255, 77, 0.6)" : "rgba(197, 255, 77, 0)",
+          backgroundColor: hovering ? "rgba(255, 107, 26, 0.15)" : "rgba(255, 107, 26, 1)",
+          borderColor: hovering ? "rgba(255, 107, 26, 0.6)" : "rgba(255, 107, 26, 0)",
         }}
         transition={{ duration: 0.2 }}
         className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border pointer-events-none z-[80] mix-blend-difference hidden md:block"

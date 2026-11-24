@@ -11,6 +11,7 @@ import {
   SiDocker,
   SiExpo,
   SiExpress,
+  SiFastapi,
   SiFirebase,
   SiFlutter,
   SiGit,
@@ -40,6 +41,7 @@ import {
   SiRedux,
   SiShadcnui,
   SiSocketdotio,
+  SiSqlalchemy,
   SiSwagger,
   SiTailwindcss,
   SiTypescript,
@@ -98,8 +100,10 @@ const TECHS: Tech[] = [
   { name: "Node.js", category: "Backend", Icon: SiNodedotjs, color: "#5FA04E" },
   { name: "Nest.js", category: "Backend", Icon: SiNestjs, color: "#E0234E" },
   { name: "Express.js", category: "Backend", Icon: SiExpress, color: "#FFFFFF" },
+  { name: "FastAPI", category: "Backend", Icon: SiFastapi, color: "#009688" },
   { name: "GraphQL", category: "Backend", Icon: SiGraphql, color: "#E10098" },
   { name: "Prisma", category: "Backend", Icon: SiPrisma, color: "#FFFFFF" },
+  { name: "SQLAlchemy", category: "Backend", Icon: SiSqlalchemy, color: "#D71F00" },
   { name: "Mongoose", category: "Backend", Icon: SiMongoose, color: "#880000" },
 
   { name: "PostgreSQL", category: "Databases", Icon: SiPostgresql, color: "#4169E1" },
@@ -107,10 +111,10 @@ const TECHS: Tech[] = [
   { name: "Redis", category: "Databases", Icon: SiRedis, color: "#FF4438" },
   { name: "Firebase", category: "Databases", Icon: SiFirebase, color: "#FFCA28" },
 
-  { name: "Microservices", category: "Architecture", Icon: Boxes, color: "#C5FF4D" },
-  { name: "Modular Monolith", category: "Architecture", Icon: Layers, color: "#C5FF4D" },
-  { name: "Event-Driven", category: "Architecture", Icon: Radio, color: "#C5FF4D" },
-  { name: "REST API Design", category: "Architecture", Icon: Network, color: "#C5FF4D" },
+  { name: "Microservices", category: "Architecture", Icon: Boxes, color: "#FF6B1A" },
+  { name: "Modular Monolith", category: "Architecture", Icon: Layers, color: "#FF6B1A" },
+  { name: "Event-Driven", category: "Architecture", Icon: Radio, color: "#FF6B1A" },
+  { name: "REST API Design", category: "Architecture", Icon: Network, color: "#FF6B1A" },
   { name: "Socket.io", category: "Architecture", Icon: SiSocketdotio, color: "#FFFFFF" },
 
   { name: "OpenAI", category: "AI", Icon: SiOpenai, color: "#FFFFFF" },
@@ -290,7 +294,7 @@ export default function Skills() {
       className="relative py-32 px-6 lg:px-16 border-t border-border overflow-hidden"
     >
       <div className="absolute top-1/2 -left-40 w-125 h-125 bg-accent/10 blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 -right-40 w-125 h-125 bg-purple-500/10 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 -right-40 w-125 h-125 bg-accent/5 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-[1600px] mx-auto">
         <div className="grid lg:grid-cols-12 gap-12 mb-12">

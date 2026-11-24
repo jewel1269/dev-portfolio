@@ -99,7 +99,7 @@ export default function Portfolio() {
                       fill
                       quality={85}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, (max-width: 1600px) 60vw, 1280px"
-                      className="object-cover object-left-top transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-background via-background/70 to-transparent" />
                   </>

@@ -163,7 +163,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center pt-28 pb-16 px-6 lg:px-16 overflow-hidden"
     >
-      {/* Ambient wash — charcoal lift + drifting lime glows */}
+      {/* Ambient wash — charcoal lift + drifting orange glows */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
         <div
           className="absolute inset-0"
@@ -194,11 +194,11 @@ export default function Hero() {
       </div>
 
       {/* Horizontal lines decoration */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.12]">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute left-0 right-0 h-px bg-accent"
+            className="absolute left-0 right-0 h-px bg-foreground"
             style={{ top: `${i * 5}%` }}
           />
         ))}

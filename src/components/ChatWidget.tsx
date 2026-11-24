@@ -164,7 +164,7 @@ export default function ChatWidget() {
           <defs>
             <linearGradient id="chat-widget-icon" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="45%" stopColor="#c5ff4d" />
+              <stop offset="45%" stopColor="#FF6B1A" />
               <stop offset="100%" stopColor="#c084fc" />
             </linearGradient>
           </defs>

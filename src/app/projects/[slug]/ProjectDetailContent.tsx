@@ -381,7 +381,7 @@ function PrevNextCard({
                 fill
                 quality={85}
                 sizes="(max-width: 640px) 100vw, 40vw"
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
               />
             ) : (
               <div className={cn("absolute inset-0 bg-linear-to-br", project.color)}>

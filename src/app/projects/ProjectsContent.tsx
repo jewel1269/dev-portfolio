@@ -52,7 +52,7 @@ function HeroBlock() {
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.4, ease: EASE, delay: 0.2 }}
-        className="absolute bottom-0 -right-40 w-125 h-125 bg-purple-500/10 blur-[120px] rounded-full"
+        className="absolute bottom-0 -right-40 w-125 h-125 bg-accent/5 blur-[120px] rounded-full"
       />
 
       <div className="relative max-w-[1600px] mx-auto">
@@ -181,7 +181,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
                 fill
                 priority={i === 0}
                 quality={80}
-                className="object-cover object-top transition-transform duration-1000 group-hover:scale-[1.04]"
+                className="object-cover object-center transition-transform duration-1000 group-hover:scale-[1.04]"
                 sizes="(max-width: 1024px) 100vw, (max-width: 1600px) 60vw, 1024px"
               />
             ) : (

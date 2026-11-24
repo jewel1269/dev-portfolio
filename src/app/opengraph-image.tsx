@@ -30,15 +30,15 @@ export default function Image() {
             color: "#8a8a8a",
           }}
         >
-          <div style={{ width: "48px", height: "2px", background: "#c5ff4d" }} />
+          <div style={{ width: "48px", height: "2px", background: "#FF6B1A" }} />
           <div>Software Engineer</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: "130px", fontWeight: 700, lineHeight: 1 }}>
-            <div style={{ color: "#c5ff4d" }}>{"I'm"}</div>
+            <div style={{ color: "#FF6B1A" }}>{"I'm"}</div>
             <div style={{ marginLeft: "30px" }}>Jewel Mia</div>
-            <div style={{ color: "#c5ff4d" }}>.</div>
+            <div style={{ color: "#FF6B1A" }}>.</div>
           </div>
           <div
             style={{
@@ -62,7 +62,7 @@ export default function Image() {
           }}
         >
           <div>Dhaka, Bangladesh</div>
-          <div style={{ color: "#c5ff4d" }}>Available for projects</div>
+          <div style={{ color: "#FF6B1A" }}>Available for projects</div>
         </div>
       </div>
     ),
